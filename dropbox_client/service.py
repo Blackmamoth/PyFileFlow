@@ -3,6 +3,8 @@ from helpers.filesystem import Filesystem
 from helpers.console import ConsoleLogger
 from dropbox import Dropbox, files
 from dropbox.exceptions import AuthError
+from prettytable import PrettyTable
+
 
 class DropboxService:
 
@@ -43,3 +45,17 @@ class DropboxService:
         except Exception as e:
             ConsoleLogger.error(e)
             return False
+        
+    @staticmethod
+    def list() -> None:
+        try:
+            files_data = DropboxService.client.files_list_folder('/').entries
+            ptable = PrettyTable()
+            ptable.field_names = ['Name', 'Path', 'Size']
+            for file in files_data:
+                if isinstance(file, files.FileMetadata):
+                    ptable.add_row([file.name, file.path_display, f'{round(file.size / 1024000, 2)} MB'])
+            print(ptable)
+            
+        except Exception as e:
+            ConsoleLogger.error(e)

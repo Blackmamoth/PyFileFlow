@@ -47,7 +47,7 @@ To use PyFileFlow with Dropbox, follow these steps:
 2. Add the following environment variables to the `.env` file:\
 	`DROPBOX_APP_KEY=your_app_key`\
 	`DROPBOX_APP_SECRET=your_app_secret`\
-	`DROPBOX_ACCESS_TOKEN=your_access_token`\
+	`DROPBOX_ACCESS_TOKEN=your_access_token`
 	
 
 

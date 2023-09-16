@@ -49,7 +49,7 @@ class DropboxService:
     @staticmethod
     def list() -> None:
         try:
-            files_data = DropboxService.client.files_list_folder('/').entries
+            files_data = DropboxService.client.files_list_folder('').entries
             ptable = PrettyTable()
             ptable.field_names = ['Name', 'Path', 'Size']
             for file in files_data:

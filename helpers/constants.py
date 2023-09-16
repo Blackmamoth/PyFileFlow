@@ -1,4 +1,5 @@
 from enum import Enum
+from dropbox_client.service import DropboxService
 
 class Services(Enum):
     Dropbox = "Dropbox"
@@ -9,3 +10,6 @@ class Operations(Enum):
     Download = "Download"
     List = "List"
 
+services = {
+    Services.Dropbox.name: DropboxService
+}
